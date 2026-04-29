@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedFlow | Staff Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="doc_dashboard.css">
+</head>
+<body>
+    <!-- Background Pattern -->
+    <div class="bg-pattern"></div>
+    <nav><div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-stethoscope"></i>
+                <span>MedFlow</span>
+            </div>
+        </div></nav>
+    
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Navbar -->
+        <header class="top-navbar">
+            <div class="navbar-left">
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title">
+                    <i class="fas fa-users me-2"></i>
+                    Live Patient Queue
+                </h1>
+            </div>
+            <div class="navbar-right">
+                <button class="btn-refresh" onclick="loadQueue()">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh
+                </button>
+                <div class="user-profile" onclick="location.href='index.html'">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Cards -->
+        <section class="stats-section">
+            <div class="container-fluid">
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-card critical">
+                            <div class="stat-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-label">Critical</div>
+                                <div class="stat-number" id="criticalCount">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-card urgent">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-label">Urgent</div>
+                                <div class="stat-number" id="urgentCount">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-card routine">
+                            <div class="stat-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-label">Routine</div>
+                                <div class="stat-number" id="routineCount">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stat-card total">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-label">Total Waiting</div>
+                                <div class="stat-number" id="totalCount">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patient Queue -->
+        <section class="queue-section">
+            <div class="container-fluid">
+                <div class="queue-header">
+                    <h3>Patient Queue</h3>
+                    <div class="queue-legend">
+                        <span class="legend-item critical">
+                            <i class="fas fa-circle"></i> Critical
+                        </span>
+                        <span class="legend-item urgent">
+                            <i class="fas fa-circle"></i> Urgent
+                        </span>
+                        <span class="legend-item routine">
+                            <i class="fas fa-circle"></i> Routine
+                        </span>
+                    </div>
+                </div>
+                <div id="queueContainer" class="queue-list">
+                    <!-- Patients will be loaded here -->
+                </div>
+                <div class="no-patients" id="noPatients">
+                    <i class="fas fa-heartbeat"></i>
+                    <h4>No patients waiting</h4>
+                    <p>Great job! All patients have been treated.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="doc_dashboard.js"></script>
+</body>
+</html>

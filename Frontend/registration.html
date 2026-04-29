@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏥 Medical Triage Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="header-section">
+            <div class="header-content">
+                <i class="fas fa-heartbeat header-icon"></i>
+                <h1>Medical Triage Portal</h1>
+                <p class="header-subtitle">Smart patient prioritization system</p>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <!-- Patient Check-in Card -->
+            <div class="checkin-card glass-effect">
+                <div class="card-header">
+                    <i class="fas fa-user-plus icon-primary"></i>
+                    <h3>Patient Check-in</h3>
+                </div>
+                <div class="card-body">
+                    <form id="patientForm">
+                        <div class="form-floating mb-4">
+                            <input type="text" class="form-control" id="pName" placeholder="">
+                            <label for="pName">Full Name</label>
+                        </div>
+                        
+                        <div class="form-floating mb-4">
+                            <textarea class="form-control" id="pSymptoms" placeholder="" style="height: 120px;"></textarea>
+                            <label for="pSymptoms">Symptoms</label>
+                        </div>
+                        
+                        <div class="form-floating mb-4">
+                            <input type="number" class="form-control" id="pPain" min="1" max="10" value="5" placeholder="Pain Level">
+                            <label for="pPain">Pain Level (1-10)</label>
+                            <div class="pain-visualizer">
+                                <div class="pain-bar" id="painBar"></div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn-gradient btn-lg w-100">
+                            <i class="fas fa-plus-circle me-2"></i>
+                            Submit to Triage
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Live Queue Card -->
+            <div class="queue-card glass-effect">
+                <div class="card-header queue-header">
+                    <i class="fas fa-list-ul icon-secondary"></i>
+                    <h3>Live Triage Queue</h3>
+                    <span class="queue-badge">
+                        <i class="fas fa-users"></i>
+                        <span id="queueCount">0</span>
+                    </span>
+                </div>
+                <div class="card-body">
+                    <div class="queue-info mb-3">
+                        <i class="fas fa-info-circle"></i>
+                        <small>Sorted by Priority: 1 (Emergency) → 3 (Routine)</small>
+                    </div>
+                    <div id="queueList" class="queue-list">
+                        <div class="empty-state">
+                            <i class="fas fa-clipboard-list-check empty-icon"></i>
+                            <p>No patients in queue</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Action Button -->
+        <button class="fab" onclick="loadQueue()" title="Refresh Queue">
+            <i class="fas fa-sync-alt"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

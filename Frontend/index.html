@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediCare - AI Healthcare</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+* {margin:0;padding:0;box-sizing:border-box}
+:root {
+  --primary-gradient: linear-gradient(135deg,#1e3a8a 0%,#3b82f6 100%);
+  --secondary-gradient: linear-gradient(135deg,#0f766e 0%,#14b8a6 100%);
+  --success-gradient: linear-gradient(135deg,#15803d 0%,#22c55e 100%);
+  --warning-gradient: linear-gradient(135deg,#b45309 0%,#f59e0b 100%);
+  --danger-gradient: linear-gradient(135deg,#dc2626 0%,#ef4444 100%);
+  --glass-bg: rgba(255,255,255,.08);
+  --glass-border: rgba(255,255,255,.15);
+  --shadow-sm: 0 4px 12px rgba(0,0,0,.08);
+  --shadow-md: 0 12px 32px rgba(0,0,0,.12);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,.15);
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 50%;
+  --transition-smooth: .4s cubic-bezier(.165,.84,.44,1);
+  --fw-bold: 700;
+  --fw-semibold: 600;
+}
+body {font-family:'Inter',sans-serif;line-height:1.6;color:rgba(255,255,255,.95);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#334155 100%);background-attachment:fixed}
+
+/* Navbar */
+.navbar {position:fixed;top:0;left:0;right:0;background:rgba(15,23,42,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.1);z-index:1000;padding:1rem 0;transition:all .3s ease}
+.nav-container {max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}
+.logo {font-size:1.5rem;font-weight:var(--fw-bold);background:var(--primary-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:.5rem}
+.nav-menu {display:flex;list-style:none;gap:2rem;margin:0}
+.nav-link {color:rgba(255,255,255,.8);text-decoration:none;font-weight:500;font-size:.95rem;transition:all .3s ease}
+.nav-link:hover {color:#fff}
+.btn {padding:.75rem 1.5rem;border-radius:var(--radius-md);font-weight:var(--fw-semibold);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .3s ease;min-height:44px}
+.btn-primary {background:var(--primary-gradient);color:#fff;box-shadow:var(--shadow-md)}
+.btn-secondary {background:rgba(255,255,255,.1);color:#fff;border:2px solid rgba(255,255,255,.2);backdrop-filter:blur(10px)}
+.btn:hover {transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+
+/* Hero */
+.hero {min-height:100vh;display:flex;align-items:center;padding:140px 0 80px;position:relative}
+.hero-container {max-width:1200px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-title {font-size:clamp(2.5rem,6vw,4.5rem);font-weight:var(--fw-bold);line-height:1.1;margin-bottom:1.5rem;background:linear-gradient(135deg,#fff 0%,#e2e8f0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-subtitle {font-size:1.3rem;opacity:.95;margin-bottom:2.5rem;max-width:500px}
+.hero-cta {display:flex;gap:1.5rem;flex-wrap:wrap}
+.hero-image {text-align:center;margin-left:25%;margin-bottom: 10%;}
+.hero-icon {width:240px;height:240px;background:var(--glass-bg);border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;backdrop-filter:blur(20px);border:1px solid var(--glass-border);box-shadow:var(--shadow-lg);animation:pulse 3s infinite}
+.hero-icon i {font-size:4.5rem;color:#fff}
+@keyframes pulse {0%,100%{transform:scale(1);box-shadow:var(--shadow-lg)}50%{transform:scale(1.03);box-shadow:0 25px 50px rgba(62,130,246,.3)}}
+.stats {position:absolute;bottom:2rem;left:70%;transform:translateX(-50%);display:flex;gap:2rem;background:var(--glass-bg);backdrop-filter:blur(20px);padding:1.5rem 2rem;border-radius:var(--radius-xl);border:1px solid var(--glass-border);box-shadow:var(--shadow-lg)}
+.stat {text-align:center;flex:1}
+.stat h3 {font-size:2.25rem;font-weight:var(--fw-bold);margin-bottom:.25rem;background:var(--primary-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat p {font-size:.9rem;font-weight:500;opacity:.8}
+
+/* Responsive */
+@media (max-width:1024px) {.hero-container {grid-template-columns:1fr;gap:3rem;text-align:center}.hero-image {margin-left:0}}
+@media (max-width:768px) {.nav-menu {display:none}.hero {padding:120px 0 60px}.hero-cta {justify-content:center;flex-direction:column;align-items:center}.stats {flex-direction:column;gap:1.5rem;padding:2rem 1.5rem;left:50%;transform:translateX(-50%)}}
+@media (max-width:480px) {.nav-container {padding:0 1.5rem}.hero-container {padding:0 1rem}.stats {flex-direction:column;gap:1rem;padding:1.5rem}}
+</style>
+
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo"><i class="fas fa-heartbeat"></i> MediCare</div>
+    <div>
+      <a href="registration.html" class="btn btn-primary"><i class="fas fa-user-plus"></i> Patient Portal</a>
+      <a href="doc_login.html" class="btn btn-secondary"><i class="fas fa-sign-in-alt"></i> Doctor Login</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="hero">
+  <div class="hero-container">
+    <div>
+      <h1 class="hero-title">AI-Powered Healthcare Platform</h1>
+      <p class="hero-subtitle">Smart patient triage, expert doctors, and seamless care. Register now for instant priority assessment.</p>
+      <div class="hero-cta">
+        <a href="registration.html" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Triage Now</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-icon"><i class="fas fa-user-md"></i></div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><h3>50K+</h3><p>Patients Served</p></div>
+    <div class="stat"><h3>200+</h3><p>Expert Doctors</p></div>
+    <div class="stat"><h3>15+</h3><p>Years Experience</p></div>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(link=>link.onclick=e=>{e.preventDefault();document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smooth'})})
+</script>
+</body>
+</html>
