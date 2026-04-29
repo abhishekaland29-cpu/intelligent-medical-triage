@@ -26,7 +26,7 @@ The entry point for patients and medical staff, providing a clear overview of th
 
 ### 🔐 Doctor Login
 Secure access portal for healthcare professionals to view prioritized patient lists.
-![Login Page](.login.jpg)
+![Login Page](./login.jpg)
 
 ### 🩺 Triage Portal
 A user-centric interface where patients or paramedics can input symptoms and vitals in natural language.
