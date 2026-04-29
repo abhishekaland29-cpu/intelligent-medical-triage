@@ -26,15 +26,15 @@ The entry point for patients and medical staff, providing a clear overview of th
 
 ### 🔐 Doctor Login
 Secure access portal for healthcare professionals to view prioritized patient lists.
-![Login Page](./images/doc_login.png)
+![Login Page](./images/login.png)
 
 ### 🩺 Triage Portal
 A user-centric interface where patients or paramedics can input symptoms and vitals in natural language.
-![Triage Portal](./images/triage_portal.png)
+![Triage Portal](./images/triage-portel.png)
 
 ### 📊 Doctor Dashboard
 The real-time prioritization engine displaying patients in order of medical urgency (Most-Urgent First).
-![Doctor Dashboard](./images/doctor_dashboard.png)
+![Doctor Dashboard](./images/dashboard.png)
 
 ---
 
