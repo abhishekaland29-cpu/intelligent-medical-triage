@@ -22,19 +22,19 @@ Emergency Department overcrowding often delays life-saving care. This project in
 
 ### 🏠 Homepage
 The entry point for patients and medical staff, providing a clear overview of the triage process.
-![Homepage](./images/homepage.png)
+![Homepage](./homepage.png)
 
 ### 🔐 Doctor Login
 Secure access portal for healthcare professionals to view prioritized patient lists.
-![Login Page](./images/login.png)
+![Login Page](.login.png)
 
 ### 🩺 Triage Portal
 A user-centric interface where patients or paramedics can input symptoms and vitals in natural language.
-![Triage Portal](./images/triage-portel.png)
+![Triage Portal](./triage-portel.png)
 
 ### 📊 Doctor Dashboard
 The real-time prioritization engine displaying patients in order of medical urgency (Most-Urgent First).
-![Doctor Dashboard](./images/dashboard.png)
+![Doctor Dashboard](./dashboard.png)
 
 ---
 
